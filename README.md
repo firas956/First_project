@@ -1,13 +1,12 @@
-###******************************************************************************
-# Copyright (C) 2024 by FIRAS MAHJOUB - National Institute Of Applied Science And Technologie , Tunis
-#
-# Redistribution, modification or use of this software in source or binary
-# forms is permitted as long as the files maintain this copyright. Users are 
-# permitted to modify this and use it to learn about the field of embedded
-# software. FIRAS MAHJOUB and the  National Institute Of Applied Science And Technologie , Tunis are not liable for any
-# misuse of this material. 
+# Stats Analysis Project
 
-###*****************************************************************************
-### The repository contains only one folder with following files:
-### 	-stats.c
-###     -stats.h
+## Author
+###FIRAS MAHJOUB
+
+## Description
+#This repository contains a C program for analyzing an array of unsigned char data items. The program calculates and reports the maximum, minimum, mean, #and median of the data set. It also sorts the data from largest to smallest and prints the results in a nicely formatted presentation.
+
+## Files
+#- `stats.c`: Implementation file containing the function definitions.
+#- `stats.h`: Header file containing the function declarations and documentation.
+#- `README.md`: This file, containing information on the author and the project.
