@@ -1,18 +1,29 @@
 #include <stdio.h>
 #include "stats.h"
 #include <stdlib.h>
-
-/*
- * @file stats.c
+#define SIZE (40)
+/******************************************************************************
+ * Copyright (C) 2017 by Alex Fosdick - University of Colorado
+ *
+ * Redistribution, modification or use of this software in source or binary
+ * forms is permitted as long as the files maintain this copyright. Users are 
+ * permitted to modify this and use it to learn about the field of embedded
+ * software. Alex Fosdick and the University of Colorado are not liable for any
+ * misuse of this material. 
+ *
+ *****************************************************************************/
+/**
+ * @file stats.c 
  * @brief Implementation file for analyzing an array of unsigned char data items.
  *
  * This file contains the implementation of functions that analyze an array of unsigned char data items
  * and report analytics on the maximum, minimum, mean, and median of the data set. It also includes a function
  * to sort the data from largest to smallest.
- *
  * Author: FIRAS MAHJOUB
  * Date: 09/06/2024
+ *
  */
+
  
  //Functions Implementations
  
@@ -92,14 +103,15 @@ void sort_array(unsigned char *data, unsigned int size) {
 }
 
 int main(){
-	/*unsigned char data[40] = {34, 201, 190, 154, 8, 194, 2, 6, 114, 88,
-                              45, 76, 123, 87, 25, 23, 200, 122, 150, 90,
-                              92, 87, 177, 244, 201, 6, 12, 60, 8, 2,
-                              5, 67, 7, 87, 250, 230, 99, 3, 100, 90};*/
-	unsigned char data[6] = { 1,2,3,4,5,6};
+	unsigned char data[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
+                              114, 88,   45,  76, 123,  87,  25,  23,
+                              200, 122, 150, 90,   92,  87, 177, 244,
+                              201,   6,  12,  60,   8,   2,   5,  67,
+                                7,  87, 250, 230,  99,   3, 100,  90};
+	
 	//print_array(data,40);
 	//sort_array(data,40);
 	//print_array(data,40);
-	print_statistics(data,6);
+	print_statistics(data,SIZE);
 	return 0;
 }
