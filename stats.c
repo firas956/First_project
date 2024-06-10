@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "stats.h"
-
+#include <stdlib.h>
 
 /*
  * @file stats.c
@@ -17,7 +17,14 @@
  //Functions Implementations
  
  void print_statistics(unsigned char *data, unsigned int size) {
-    // Implementation will go here
+    sort_array(data,size);
+    unsigned char mean = find_mean(data,size);
+    unsigned char median = find_median(data,size);
+    unsigned char maxi = find_maximum(data,size);
+    unsigned char mini = find_minimum(data,size);
+    
+    printf("Data statistics : \n");
+    printf("Data mean = %d \nData median = %d \nData maximum = %d \nData minimum = %d\n",mean,median,maxi,mini); 
 }
 
 void print_array(unsigned char *data, unsigned int size) {
@@ -41,24 +48,38 @@ unsigned char find_median(unsigned char *data, unsigned int size) {
 }
 
 unsigned char find_mean(unsigned char *data, unsigned int size) {
-    // Implementation will go here
-    return 0;  // Placeholder return
+    unsigned int sum = 0;
+    for (int i = 0 ; i < size ; i++){
+    	sum += *(data+i);
+    }
+    unsigned char mean = sum/size;
+    return mean;  
 }
 
 unsigned char find_maximum(unsigned char *data, unsigned int size) {
-    // Implementation will go here
-    return 0;  // Placeholder return
+    unsigned char max = 0;
+    for (int i  = 0 ; i < size ; i++){
+    	if (*(data + i) > max ){
+    		max =  *(data + i) ;
+    	}
+    }
+    return max; 
 }
 
 unsigned char find_minimum(unsigned char *data, unsigned int size) {
-    // Implementation will go here
-    return 0;  // Placeholder return
+    unsigned char min = 255;
+    for (int i  = 0 ; i < size ; i++){
+    	if(*(data + i) < min ){ 
+    		min =  *(data + i);
+    	} 
+    }
+    return min; 
 }
 
 void sort_array(unsigned char *data, unsigned int size) {
     int i = 0;
     
-    while(i != size-2){
+    while(i != size-1){
     	if(*(data+i+1)>*(data+i)){
     		int copie = *(data+i);
     		*(data+i) = *(data+i+1);
@@ -71,10 +92,14 @@ void sort_array(unsigned char *data, unsigned int size) {
 }
 
 int main(){
-	unsigned char[40] data = {34, 201, 190, 154, 8, 194, 2, 6, 114, 88,
+	/*unsigned char data[40] = {34, 201, 190, 154, 8, 194, 2, 6, 114, 88,
                               45, 76, 123, 87, 25, 23, 200, 122, 150, 90,
                               92, 87, 177, 244, 201, 6, 12, 60, 8, 2,
-                              5, 67, 7, 87, 250, 230, 99, 3, 100, 90};
-	//TO DO
+                              5, 67, 7, 87, 250, 230, 99, 3, 100, 90};*/
+	unsigned char data[6] = { 1,2,3,4,5,6};
+	//print_array(data,40);
+	//sort_array(data,40);
+	//print_array(data,40);
+	print_statistics(data,6);
 	return 0;
 }
